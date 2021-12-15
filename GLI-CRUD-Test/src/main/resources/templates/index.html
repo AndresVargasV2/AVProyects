@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<ead>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../static/css/main.css" type="text/css"
+    rel="stylesheet" th:href="@{/css/main.css}"
+    media="screen,projection">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+  crossorigin="anonymous"></script>
+    <title>AppLab CRUD</title>
+</head>
+<body>
+    <div class="document">
+        <div class="sidenav">
+            <div class="logo">
+                GLI
+            </div>
+            <a th:href="@{admin}"><i class="fa fa-user" aria-hidden="true"></i> Administradores</a>
+            <a th:href="@{catalogos}"><i class="fa fa-clipboard" aria-hidden="true"></i> Catalogos</a>
+            <a th:href="@{lideres}"><i class="fa fa-users" aria-hidden="true"></i> Lideres</a>
+            <a th:href="@{usuarios}"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Usuarios</a>
+            <a th:href="@{empresa}"><i class="fa fa-users" aria-hidden="true"></i> Mi Empresa</a>
+            <a th:href="@{cursos}"><i class="fa fa-book" aria-hidden="true"></i> Cursos</a>
+            <a th:href="@{rewards}"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Recompensas</a>
+            <a th:href="@{eventos}"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
+            <a th:href="@{notifications}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Notificaciones</a>
+            <a th:href="@{reportes}"><i class="fas fa-clipboard    "></i> Reportes</a>
+            <div class="sidebar-foot">
+                <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright GLI 2021</p>
+            </div>         
+        </div>
+        <div class="topnav">
+            <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+            <a href="account"> Administrator </a>
+            <a href="/logout"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="principal">
+        	<div class="rutes">
+                <h4 for="" >Inicio </h4><h4 class="catacol" for="">>  Catalogos</h4>
+            </div>
+			<h3 class="title"> Catalogos</h3>
+        	<div class="Catalogos">
+        		<p class="subtitle"> Selecciona el tipo de catalogo que quieres ver</p >
+				<div class="Botones">
+				
+            	</div>
+            	<div class="cards">
+                   <th:block th:each="cata : ${catalogos}">
+	                   	<div class="card">
+						  <img class="card-img-top" th:src="@{${cata.cata_image}}" alt="Card image cap">
+						  <div class="card-body">
+						    <h5 class="card-title"><td th:text="${cata.cata_name}"></td ></h5>
+						    <a th:href="@{${cata.cata_url}}" class="btn btn-primary">Ver Catalogo</a>
+						  </div>
+						</div>
+                    </th>
+            	</div>
+        	</div >
+        </div>
+    </div>
+</body>
+</html>
